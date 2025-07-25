@@ -1,0 +1,20 @@
+services:
+  db:
+    build:
+      context: ..                      # корень вашего проекта
+      dockerfile: docker/Dockerfile
+    restart: always
+    container_name: widget-db     # уникальное имя для БД
+    environment:
+      POSTGRES_USER:     widget
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB:       widgetapp
+    ports:
+      - "5434:5432"                   # 5434 на хосте → 5432 в контейнере
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  # здесь можно добавить api, minio, kafka и т.д.
+
+volumes:
+  pgdata:

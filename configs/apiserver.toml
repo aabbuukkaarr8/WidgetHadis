@@ -1,0 +1,7 @@
+bind_addr = ":8083"
+log_level = "debug"
+[store]
+database_url = "postgres://widjet:secret@localhost:5434/widjet?sslmode=disable"
+
+
+
