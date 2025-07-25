@@ -8,7 +8,7 @@ type Request struct {
 
 type Response struct {
 	Id    int    `json:"Номер Хадиса"`
-	Title string `json:"title"`
+	Title string `json:"Хадис"`
 }
 
 func (m *Request) ToSrv() hadis.CreateModel {
