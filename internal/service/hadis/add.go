@@ -2,7 +2,7 @@ package hadis
 
 import "widjetHadis/internal/repository/hadis"
 
-func (s *Service) Add(input *CreateModel) (*Model, error) {
+func (s *Service) Add(input CreateModel) (*Model, error) {
 	toDB := hadis.Model{
 		Title: input.Title,
 	}
@@ -12,7 +12,7 @@ func (s *Service) Add(input *CreateModel) (*Model, error) {
 		return nil, err
 	}
 	fromDB := Model{
-		Id: created.Id,
+		Id:    created.Id,
 		Title: created.Title,
 	}
 	return &fromDB, nil
