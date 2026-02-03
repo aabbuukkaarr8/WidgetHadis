@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
 	"net/http"
+	"widjetHadis/internal/handler/hadis"
 )
 
 type APIServer struct {
@@ -39,4 +40,8 @@ func (s *APIServer) configLogger() error {
 	}
 	s.logger.SetLevel(level)
 	return nil
+}
+
+func (s *APIServer) ConfigureRouter(hadisHandler *hadis.Handler) {
+	s.router.POST("/hadis/add", hadisHandler.Add)
 }
